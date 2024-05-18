@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Agregar Cliente</h1>
-    <form action="{{ route('clientes.store') }}" method="POST">
+    <form action="{{ route('clientes.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -38,6 +38,11 @@
         <div class="form-group">
             <label for="dni">DNI</label>
             <input type="text" class="form-control" id="dni" name="dni" value="{{ old('dni') }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="foto_perfil">Foto de Perfil</label>
+            <input type="file" class="form-control-file" id="foto_perfil" name="foto_perfil">
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Editar Cliente</h1>
-    <form action="{{ route('clientes.update', $cliente->id) }}" method="POST">
+    <form action="{{ route('clientes.update', $cliente->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -40,6 +40,16 @@
             <label for="dni">DNI</label>
             <input type="text" class="form-control" id="dni" name="dni" value="{{ old('dni', $cliente->dni) }}" required>
         </div>
+
+        <div class="form-group">
+            <label for="foto_perfil">Foto de Perfil</label>
+            <input type="file" class="form-control-file" id="foto_perfil" name="foto_perfil">
+        </div>
+        @if ($cliente->foto_perfil)
+            <div class="form-group">
+                <img src="{{ $cliente->foto_perfil }}" alt="Foto de perfil actual" class="img-thumbnail" width="150">
+            </div>
+        @endif
 
         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-secondary">Cancelar</a>
