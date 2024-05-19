@@ -1,0 +1,7 @@
+/* resources/css/custom.css */
+@media (min-width: 992px) {
+    .col-lg-1-8 {
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+    }
+}
