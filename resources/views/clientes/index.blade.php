@@ -7,7 +7,32 @@
     <button id="toggleView" class="btn btn-secondary">Cambiar Vista</button>
 </div>
 
-<div id="tableView" class="card shadow mb-4">
+<div id="cardView" class="row">
+    @foreach($clientes as $cliente)
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 card-container">
+            <div class="card h-100">
+                <img src="{{ $cliente->foto_perfil ? asset($cliente->foto_perfil) : 'https://via.placeholder.com/150' }}" class="card-img-top" alt="Foto de perfil">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $cliente->nombre }} {{ $cliente->apellidos }}</h5>
+                    <p class="card-text"><strong>Email:</strong> {{ $cliente->email }}</p>
+                    <p class="card-text"><strong>Teléfono:</strong> {{ $cliente->telefono }}</p>
+                    <p class="card-text"><strong>Dirección:</strong> {{ $cliente->direccion }}</p>
+                    <p class="card-text"><strong>Fecha de Nacimiento:</strong> {{ \Carbon\Carbon::parse($cliente->fecha_nacimiento)->format('d/m/Y') }}</p>
+                    <p class="card-text"><strong>DNI:</strong> {{ $cliente->dni }}</p>
+                    <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-info">Ver</a>
+                    <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning">Editar</a>
+                    <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display:inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
+
+<div id="tableView" class="card shadow mb-4" style="display:none;">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Clientes</h6>
     </div>
@@ -55,31 +80,6 @@
     </div>
 </div>
 
-<div id="cardView" class="row" style="display:none;">
-    @foreach($clientes as $cliente)
-        <div class="col-lg-3 mb-4">
-            <div class="card h-100">
-                <img src="{{ $cliente->foto_perfil ? asset($cliente->foto_perfil) : 'https://via.placeholder.com/150' }}" class="card-img-top" alt="Foto de perfil">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $cliente->nombre }} {{ $cliente->apellidos }}</h5>
-                    <p class="card-text"><strong>Email:</strong> {{ $cliente->email }}</p>
-                    <p class="card-text"><strong>Teléfono:</strong> {{ $cliente->telefono }}</p>
-                    <p class="card-text"><strong>Dirección:</strong> {{ $cliente->direccion }}</p>
-                    <p class="card-text"><strong>Fecha de Nacimiento:</strong> {{ \Carbon\Carbon::parse($cliente->fecha_nacimiento)->format('d/m/Y') }}</p>
-                    <p class="card-text"><strong>DNI:</strong> {{ $cliente->dni }}</p>
-                    <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-info">Ver</a>
-                    <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning">Editar</a>
-                    <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display:inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('toggleView').addEventListener('click', function() {
@@ -90,7 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
             cardView.style.display = 'none';
         } else {
             tableView.style.display = 'none';
-            cardView.style.display = 'block';
+            cardView.style.display = 'flex';
+            cardView.style.flexWrap = 'wrap';
         }
     });
 });

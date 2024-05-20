@@ -17,10 +17,8 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
-    <div id="wrapper">
-        @include('layouts.sidebar')
-
-        <div id="content-wrapper" class="d-flex flex-column">
+    <div id="app" class="d-flex flex-column min-vh-100">
+        <div id="content-wrapper" class="flex-grow-1">
             <div id="content">
                 @include('layouts.topbar')
 
@@ -28,9 +26,8 @@
                     @yield('content')
                 </div>
             </div>
-
-            @include('layouts.footer')
         </div>
+        @include('layouts.footer')
     </div>
 
     <!-- Scripts -->

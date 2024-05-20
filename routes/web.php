@@ -9,7 +9,7 @@ use App\Http\Controllers\EntrenadorController;
 use App\Http\Controllers\AsistenciaController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 // Rutas de autenticación
@@ -23,5 +23,4 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('entrenadores', EntrenadorController::class);
     Route::resource('asistencias', AsistenciaController::class);
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-
 });

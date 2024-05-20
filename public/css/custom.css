@@ -1,0 +1,38 @@
+body {
+    background-color: #333;
+}
+
+.bg-login-image {
+    background: url('/img/mancuernas.jpeg');
+    background-position: center;
+    background-size: cover;
+}
+
+.card {
+    background-color: #fff;
+    border: none;
+}
+
+.card-body {
+    color: #333;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1a1a1a;
+    border: none;
+}
+
+.text-gray-900 {
+    color: #333!important;
+}
+
+.form-control-user {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    background-color: #1a1a1a;
+}
