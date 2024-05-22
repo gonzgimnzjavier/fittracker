@@ -1,5 +1,5 @@
 <?php
-// app/Models/Entrenador.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,12 +9,16 @@ class Entrenador extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'nombre', 'especialidad', 'dni',
-    ];
+    protected $table = 'entrenadores'; // Asegúrate de que el nombre de la tabla es correcto
 
-    public function clases()
-    {
-        return $this->belongsToMany(Clase::class, 'clase_entrenador');
-    }
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'email',
+        'telefono',
+        'direccion',
+        'fecha_nacimiento',
+        'dni',
+        'foto_perfil',
+    ];
 }

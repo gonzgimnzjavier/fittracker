@@ -7,6 +7,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\EntrenadorController;
 use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -22,5 +23,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('clases', ClaseController::class);
     Route::resource('entrenadores', EntrenadorController::class);
     Route::resource('asistencias', AsistenciaController::class);
-    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 });
