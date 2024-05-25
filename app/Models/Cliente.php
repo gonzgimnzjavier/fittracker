@@ -1,5 +1,5 @@
 <?php
-// app/Models/Cliente.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,8 +10,13 @@ class Cliente extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre', 'apellidos', 'email', 'telefono', 'direccion', 'fecha_nacimiento', 'dni', 'foto_perfil',
+        'nombre', 'apellidos', 'email', 'telefono', 'direccion', 'fecha_nacimiento', 'dni', 'foto_perfil', 'membresia_id',
     ];
+
+    public function membresia()
+    {
+        return $this->belongsTo(Membresia::class);
+    }
 
     public function clases()
     {

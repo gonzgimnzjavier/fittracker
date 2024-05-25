@@ -10,7 +10,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="{{ $cliente->foto_perfil ? asset($cliente->foto_perfil) : 'https://via.placeholder.com/150' }}" class="img-fluid rounded mb-3" alt="Foto de perfil">
+                    <img src="{{ $cliente->foto_perfil ? asset($cliente->foto_perfil) : 'https://via.placeholder.com/150'}}" class="img-fluid rounded mb-3" alt="Foto de perfil">
                 </div>
                 <div class="col-md-8">
                     <ul class="list-group list-group-flush">
@@ -19,6 +19,14 @@
                         <li class="list-group-item"><strong>Dirección:</strong> {{ $cliente->direccion }}</li>
                         <li class="list-group-item"><strong>Fecha de Nacimiento:</strong> {{ \Carbon\Carbon::parse($cliente->fecha_nacimiento)->format('d/m/Y') }}</li>
                         <li class="list-group-item"><strong>DNI:</strong> {{ $cliente->dni }}</li>
+                        <li class="list-group-item"><strong>Membresía:</strong> {{ $cliente->membresia->nombre }}</li>
+                        <li class="list-group-item"><strong>Clases:</strong>
+                            <ul>
+                                @foreach($cliente->clases as $clase)
+                                    <li>{{ $clase->nombre }} ({{ $clase->horario }})</li>
+                                @endforeach
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

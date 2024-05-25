@@ -1,8 +1,10 @@
 <?php
-// app/Http/Controllers/ClienteController.php
+
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Clase;
+use App\Models\Membresia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +18,9 @@ class ClienteController extends Controller
 
     public function create()
     {
-        return view('clientes.create');
+        $membresias = Membresia::all();
+        $clases = Clase::all();
+        return view('clientes.create', compact('membresias', 'clases'));
     }
 
     public function store(Request $request)
@@ -30,7 +34,16 @@ class ClienteController extends Controller
             'fecha_nacimiento' => 'required|date',
             'dni' => 'required|unique:clientes',
             'foto_perfil' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'membresia_id' => 'required|exists:membresias,id',
+            'clases' => 'array',
+            'clases.*' => 'exists:clases,id',
         ]);
+
+        $membresia = Membresia::findOrFail($request->membresia_id);
+
+        if (count($request->clases) > $membresia->max_clases) {
+            return redirect()->back()->withErrors(['clases' => 'El número de clases excede el permitido por la membresía seleccionada.']);
+        }
 
         $data = $request->all();
         if ($request->hasFile('foto_perfil')) {
@@ -38,7 +51,9 @@ class ClienteController extends Controller
             $data['foto_perfil'] = Storage::url($path);
         }
 
-        Cliente::create($data);
+        $cliente = Cliente::create($data);
+        $cliente->clases()->attach($request->clases);
+
         return redirect()->route('clientes.index')->with('success', 'Cliente creado correctamente.');
     }
 
@@ -49,7 +64,9 @@ class ClienteController extends Controller
 
     public function edit(Cliente $cliente)
     {
-        return view('clientes.edit', compact('cliente'));
+        $membresias = Membresia::all();
+        $clases = Clase::all();
+        return view('clientes.edit', compact('cliente', 'membresias', 'clases'));
     }
 
     public function update(Request $request, Cliente $cliente)
@@ -63,19 +80,29 @@ class ClienteController extends Controller
             'fecha_nacimiento' => 'required|date',
             'dni' => 'required|unique:clientes,dni,' . $cliente->id,
             'foto_perfil' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'membresia_id' => 'required|exists:membresias,id',
+            'clases' => 'array',
+            'clases.*' => 'exists:clases,id',
         ]);
+
+        $membresia = Membresia::findOrFail($request->membresia_id);
+
+        if (count($request->clases) > $membresia->max_clases) {
+            return redirect()->back()->withErrors(['clases' => 'El número de clases excede el permitido por la membresía seleccionada.']);
+        }
 
         $data = $request->all();
         if ($request->hasFile('foto_perfil')) {
             $path = $request->file('foto_perfil')->store('public/perfiles');
             $data['foto_perfil'] = Storage::url($path);
-            // Eliminar la foto anterior si existe
             if ($cliente->foto_perfil) {
                 Storage::delete(str_replace('/storage', 'public', $cliente->foto_perfil));
             }
         }
 
         $cliente->update($data);
+        $cliente->clases()->sync($request->clases);
+
         return redirect()->route('clientes.index')->with('success', 'Cliente actualizado correctamente.');
     }
 
