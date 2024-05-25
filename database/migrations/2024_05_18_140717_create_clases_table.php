@@ -18,6 +18,14 @@ return new class extends Migration
             $table->string('horario');
             $table->timestamps();
         });
+
+        // Tabla pivote para la relación muchos a muchos entre clases y entrenadores
+        Schema::create('clase_entrenador', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('clase_id')->constrained('clases')->onDelete('cascade');
+            $table->foreignId('entrenador_id')->constrained('entrenadores')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,6 +33,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('clase_entrenador');
         Schema::dropIfExists('clases');
     }
 };

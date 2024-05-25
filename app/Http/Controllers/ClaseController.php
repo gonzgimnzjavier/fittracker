@@ -1,9 +1,10 @@
 <?php
-// app/Http/Controllers/ClaseController.php
+
 namespace App\Http\Controllers;
 
-use App\Models\Clase;
 use Illuminate\Http\Request;
+use App\Models\Clase;
+use App\Models\Entrenador;
 
 class ClaseController extends Controller
 {
@@ -15,46 +16,60 @@ class ClaseController extends Controller
 
     public function create()
     {
-        return view('clases.create');
+        $entrenadores = Entrenador::all();
+        return view('clases.create', compact('entrenadores'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'horario' => 'required',
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'required|string',
+            'horario' => 'required|string|max:255',
+            'entrenador_id' => 'required|exists:entrenadores,id',
         ]);
 
-        Clase::create($request->all());
-        return redirect()->route('clases.index')->with('success', 'Clase creada correctamente.');
+        $clase = Clase::create($request->only('nombre', 'descripcion', 'horario'));
+        $clase->entrenadores()->attach($request->entrenador_id);
+
+        return redirect()->route('clases.index')->with('success', 'Clase creada exitosamente.');
     }
 
-    public function show(Clase $clase)
+    public function show($id)
     {
+        $clase = Clase::with('entrenadores')->findOrFail($id);
         return view('clases.show', compact('clase'));
     }
 
-    public function edit(Clase $clase)
+    public function edit($id)
     {
-        return view('clases.edit', compact('clase'));
+        $clase = Clase::findOrFail($id);
+        $entrenadores = Entrenador::all();
+        return view('clases.edit', compact('clase', 'entrenadores'));
     }
 
-    public function update(Request $request, Clase $clase)
+    public function update(Request $request, $id)
     {
+        $clase = Clase::findOrFail($id);
+
         $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'horario' => 'required',
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'required|string',
+            'horario' => 'required|string|max:255',
+            'entrenador_id' => 'required|exists:entrenadores,id',
         ]);
 
-        $clase->update($request->all());
-        return redirect()->route('clases.index')->with('success', 'Clase actualizada correctamente.');
+        $clase->update($request->only('nombre', 'descripcion', 'horario'));
+        $clase->entrenadores()->sync($request->entrenador_id);
+
+        return redirect()->route('clases.index')->with('success', 'Clase actualizada exitosamente.');
     }
 
-    public function destroy(Clase $clase)
+    public function destroy($id)
     {
+        $clase = Clase::findOrFail($id);
         $clase->delete();
-        return redirect()->route('clases.index')->with('success', 'Clase eliminada correctamente.');
+
+        return redirect()->route('clases.index')->with('success', 'Clase eliminada exitosamente.');
     }
 }
