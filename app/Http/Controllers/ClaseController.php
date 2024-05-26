@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clase;
 use App\Models\Entrenador;
+use App\Models\Cliente;
 
 class ClaseController extends Controller
 {
@@ -37,8 +38,9 @@ class ClaseController extends Controller
 
     public function show($id)
     {
-        $clase = Clase::with('entrenadores')->findOrFail($id);
-        return view('clases.show', compact('clase'));
+        $clase = Clase::with(['entrenadores', 'clientes'])->findOrFail($id);
+        $clientes = Cliente::all(); // Obtener todos los clientes para el modal
+        return view('clases.show', compact('clase', 'clientes'));
     }
 
     public function edit($id)
@@ -71,5 +73,27 @@ class ClaseController extends Controller
         $clase->delete();
 
         return redirect()->route('clases.index')->with('success', 'Clase eliminada exitosamente.');
+    }
+
+    public function asignarAlumno(Request $request, $id)
+    {
+        $request->validate([
+            'cliente_id' => 'required|exists:clientes,id',
+        ]);
+
+        $clase = Clase::findOrFail($id);
+        $cliente = Cliente::findOrFail($request->cliente_id);
+
+        // Verifica el número de clases permitidas por la membresía del cliente
+        $membresia = $cliente->membresia;
+        if ($cliente->clases()->count() >= $membresia->max_clases) {
+            return redirect()->route('clases.show', $clase->id)
+                ->with('error', 'El cliente ha alcanzado el número máximo de clases permitidas por su membresía.');
+        }
+
+        // Asigna el cliente a la clase
+        $clase->clientes()->attach($cliente->id);
+
+        return redirect()->route('clases.show', $clase->id)->with('success', 'Alumno asignado a la clase correctamente.');
     }
 }
