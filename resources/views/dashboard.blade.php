@@ -20,7 +20,6 @@
                         <a href="{{ route('clientes.index') }}" class="btn btn-primary">Gestionar Clientes</a>
                         <a href="{{ route('clases.index') }}" class="btn btn-primary">Gestionar Clases</a>
                         <a href="{{ route('entrenadores.index') }}" class="btn btn-primary">Gestionar Entrenadores</a>
-                        <a href="{{ route('asistencias.index') }}" class="btn btn-primary">Gestionar Asistencias</a>
                     </div>
                 </div>
             </div>
