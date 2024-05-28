@@ -1,115 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>GymApp - Register</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <meta charset="utf-8" />
+    <title>FitTracker - Register</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    
+    <!-- ================== BEGIN core-css ================== -->
+    <link href="{{ asset('assets/css/vendor.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/default/app.min.css') }}" rel="stylesheet" />
+    <!-- ================== END core-css ================== -->
 </head>
+<body class='pace-top'>
+    <!-- BEGIN #loader -->
+    <div id="loader" class="app-loader">
+        <span class="spinner"></span>
+    </div>
+    <!-- END #loader -->
 
-<body>
-
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-
-        <!-- Outer Row -->
-        <div class="row justify-content-center w-100">
-
-            <div class="col-xl-10 col-lg-12 col-md-12">
-
-                <div class="card o-hidden shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-register-image">
-                                <div class="footer-text">
-                                    <h1>FitTracker</h1>
-                                    <p>Tu compañero de entrenamiento</p>
+    <!-- BEGIN #app -->
+    <div id="app" class="app">
+        <!-- BEGIN register -->
+        <div class="register register-with-news-feed">
+            <!-- BEGIN news-feed -->
+            <div class="news-feed">
+                <div class="news-image" style="background-image: url('{{ asset('assets/img/login-bg/login-bg-15.jpg') }}')"></div>
+                <div class="news-caption">
+                    <h4 class="caption-title"><b>FitTracker</b> App</h4>
+                    <p>Tu compañero de entrenamiento</p>
+                </div>
+            </div>
+            <!-- END news-feed -->
+            
+            <!-- BEGIN register-container -->
+            <div class="register-container">
+                <!-- BEGIN register-header -->
+                <div class="register-header mb-25px h1">
+                    <div class="mb-1">Sign Up</div>
+                    <small class="d-block fs-15px lh-16">Create your FitTracker Account. It’s free and always will be.</small>
+                </div>
+                <!-- END register-header -->
+                
+                <!-- BEGIN register-content -->
+                <div class="register-content">
+                    <form method="POST" action="{{ route('register') }}" class="fs-13px">
+                        @csrf
+                        <div class="mb-3">
+                            <label class="mb-2">Name <span class="text-danger">*</span></label>
+                            <div class="row gx-3">
+                                <div class="col-md-6 mb-2 mb-md-0">
+                                    <input type="text" class="form-control fs-13px @error('name') is-invalid @enderror" placeholder="First name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
-                            </div>
-                            <div class="col-lg-6 d-flex align-items-center">
-                                <div class="p-5 w-100">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">¡Regístrate ahora!</h1>
-                                    </div>
-                                    <form method="POST" action="{{ route('register') }}">
-                                        @csrf
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user @error('name') is-invalid @enderror"
-                                                id="name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
-                                                placeholder="Nombre">
-                                            @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror"
-                                                id="email" name="email" value="{{ old('email') }}" required autocomplete="email"
-                                                placeholder="Correo Electrónico">
-                                            @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror"
-                                                id="password" name="password" required autocomplete="new-password"
-                                                placeholder="Contraseña">
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="password-confirm" name="password_confirmation" required autocomplete="new-password"
-                                                placeholder="Confirmar Contraseña">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Registrarse
-                                        </button>
-                                    </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('login') }}">¿Ya tienes una cuenta? Inicia sesión!</a>
-                                    </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control fs-13px @error('surname') is-invalid @enderror" placeholder="Last name" name="surname" value="{{ old('surname') }}" required autocomplete="surname" />
+                                    @error('surname')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="mb-3">
+                            <label class="mb-2">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control fs-13px @error('email') is-invalid @enderror" placeholder="Email address" name="email" value="{{ old('email') }}" required autocomplete="email" />
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="mb-2">Re-enter Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control fs-13px" placeholder="Re-enter email address" name="email_confirmation" required autocomplete="email_confirmation" />
+                        </div>
+                        <div class="mb-4">
+                            <label class="mb-2">Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control fs-13px @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password" />
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" value="" id="agreementCheckbox" />
+                            <label class="form-check-label" for="agreementCheckbox">
+                                By clicking Sign Up, you agree to our <a href="javascript:;">Terms</a> and that you have read our <a href="javascript:;">Data Policy</a>, including our <a href="javascript:;">Cookie Use</a>.
+                            </label>
+                        </div>
+                        <div class="mb-4">
+                            <button type="submit" class="btn btn-theme d-block w-100 btn-lg h-45px fs-13px">Sign Up</button>
+                        </div>
+                        <div class="mb-4 pb-5">
+                            Already a member? Click <a href="{{ route('login') }}">here</a> to login.
+                        </div>
+                        <hr class="bg-gray-600 opacity-2" />
+                        <p class="text-center text-gray-600">
+                            &copy; FitTracker All Right Reserved 2024
+                        </p>
+                    </form>
                 </div>
-
+                <!-- END register-content -->
             </div>
-
+            <!-- END register-container -->
         </div>
-
+        <!-- END register -->
     </div>
+    <!-- END #app -->
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
+    <!-- ================== BEGIN core-js ================== -->
+    <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app.min.js') }}"></script>
+    <!-- ================== END core-js ================== -->
 </body>
-
 </html>

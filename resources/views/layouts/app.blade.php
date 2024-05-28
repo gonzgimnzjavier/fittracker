@@ -11,6 +11,7 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div id="app" class="d-flex flex-column min-vh-100">
@@ -51,11 +52,6 @@
             @yield('content')
         </main>
 
-        <footer class="footer mt-auto py-3 bg-dark text-white">
-            <div class="container text-center">
-                <span class="text-muted">&copy; {{ date('Y') }} Your Website</span>
-            </div>
-        </footer>
     </div>
 
     <!-- Scripts -->

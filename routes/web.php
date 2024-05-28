@@ -22,6 +22,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('clientes', ClienteController::class);
     Route::resource('clases', ClaseController::class);
     Route::resource('entrenadores', EntrenadorController::class);
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::post('clases/{id}/asignar-alumno', [ClaseController::class, 'asignarAlumno'])->name('clases.asignarAlumno');
+    Route::get('/dashboard/chart-data/{claseId}', [App\Http\Controllers\DashboardController::class, 'getChartData']);
+    
 });
