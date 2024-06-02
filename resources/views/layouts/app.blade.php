@@ -12,6 +12,16 @@
     <!-- Bootstrap CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKB4Imkb9bl2FFSj3B2X1RQ8bqE5aVhx8lMWw5V3FbQWsmWe2bq6FF5TWg4F0R7Xg5ybRwrLQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            overflow-y: scroll;
+        }
+        .main-content {
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+    </style>
 </head>
 <body>
     <div id="app" class="d-flex flex-column min-vh-100">
@@ -48,10 +58,15 @@
             </div>
         </nav>
 
-        <main class="flex-grow-1 py-4">
+        <main class="flex-grow-1 py-4 main-content">
             @yield('content')
         </main>
 
+        <footer class="bg-dark text-white text-center py-3 mt-auto">
+            <div class="container">
+                <p class="mb-0">&copy; {{ date('Y') }} FitTracker. Todos los derechos reservados.</p>
+            </div>
+        </footer>
     </div>
 
     <!-- Scripts -->

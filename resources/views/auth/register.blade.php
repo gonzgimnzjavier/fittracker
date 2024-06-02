@@ -76,10 +76,6 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="mb-3">
-                            <label class="mb-2">Re-enter Email <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control fs-13px" placeholder="Re-enter email address" name="email_confirmation" required autocomplete="email_confirmation" />
-                        </div>
                         <div class="mb-4">
                             <label class="mb-2">Password <span class="text-danger">*</span></label>
                             <input type="password" class="form-control fs-13px @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password" />
@@ -88,6 +84,10 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label class="mb-2">Confirm Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control fs-13px @error('password_confirmation') is-invalid @enderror" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password" />
                         </div>
                         <div class="form-check mb-4">
                             <input class="form-check-input" type="checkbox" value="" id="agreementCheckbox" />

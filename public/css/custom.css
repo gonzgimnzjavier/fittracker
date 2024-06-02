@@ -69,3 +69,29 @@ body::before {
 .bg-gradient-dark {
     background: rgba(0, 0, 0, 0.5);
 }
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body i {
+    color: #4e73df;
+}
+
+.card-body .card-title {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.card-body .btn {
+    border-radius: 20px;
+}
+
+.container.main-content {
+    max-width: 1200px;
+}
