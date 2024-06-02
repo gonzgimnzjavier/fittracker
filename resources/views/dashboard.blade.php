@@ -6,12 +6,12 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-body text-center">
-                <h1 class="h3" style="color: #e74a3b;">¡Bienvenido a FitTracker!</h1>
+                    <h1 class="h3" style="color: #e74a3b;">¡Bienvenido a FitTracker!</h1>
                     <p class="lead">Gestiona tus clientes, clases y entrenadores de manera eficiente.</p>
 
                     <div class="row mt-3">
                         <div class="col-md-4">
-                            <div class="card mb-3 bg-light">
+                            <div class="card mb-3 bg-dark-gray">
                                 <div class="card-body text-center">
                                     <i class="fas fa-users fa-2x mb-2"></i>
                                     <p class="card-text">Administra todos tus clientes desde aquí.</p>
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card mb-3 bg-light">
+                            <div class="card mb-3 bg-dark-gray">
                                 <div class="card-body text-center">
                                     <i class="fas fa-dumbbell fa-2x mb-2"></i>
                                     <p class="card-text">Organiza y controla todas tus clases.</p>
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card mb-3 bg-light">
+                            <div class="card mb-3 bg-dark-gray">
                                 <div class="card-body text-center">
                                     <i class="fas fa-user-tie fa-2x mb-2"></i>
                                     <p class="card-text">Gestiona la información de los entrenadores.</p>
@@ -41,7 +41,7 @@
 
                     <div class="row mt-3">
                         <div class="col-md-6">
-                            <div class="card bg-light">
+                            <div class="card bg-dark-gray">
                                 <div class="card-body">
                                     <select id="claseSelect" class="form-control form-control-sm mb-3">
                                         <option value="" disabled selected>Seleccionar Clase</option>
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card bg-light">
+                            <div class="card bg-dark-gray">
                                 <div class="card-body">
                                     <canvas id="membresiaChart" style="max-height: 200px;"></canvas>
                                 </div>

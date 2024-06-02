@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Styles -->
@@ -21,12 +23,19 @@
             overflow-y: auto;
             max-height: 100vh;
         }
+        .navbar-brand img {
+            max-height: 40px; /* Ajusta este tamaño según tus necesidades */
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
     <div id="app" class="d-flex flex-column min-vh-100">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{{ url('dashboard') }}">FitTracker</a>
+            <a class="navbar-brand" href="{{ url('dashboard') }}">
+                <img src="{{ asset('images/fittracker.png') }}" alt="FitTracker Logo"> <!-- Asegúrate de que la imagen esté en public/images/logo.png -->
+                FitTracker
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

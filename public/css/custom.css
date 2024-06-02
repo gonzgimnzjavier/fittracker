@@ -95,3 +95,6 @@ body::before {
 .container.main-content {
     max-width: 1200px;
 }
+.bg-dark-gray {
+    background-color: #cbcaca; /* Puedes ajustar este valor para hacerlo más oscuro si es necesario */
+}

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
-    <title>FitTracker - Register</title>
+    <title>FitTracker - Registrarse</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
@@ -25,10 +25,9 @@
         <div class="register register-with-news-feed">
             <!-- BEGIN news-feed -->
             <div class="news-feed">
-                <div class="news-image" style="background-image: url('{{ asset('assets/img/login-bg/login-bg-15.jpg') }}')"></div>
+                <div class="news-image" style="background-image: url('{{ asset('images/fittracker.png') }}')"></div>
                 <div class="news-caption">
-                    <h4 class="caption-title"><b>FitTracker</b> App</h4>
-                    <p>Tu compañero de entrenamiento</p>
+                   
                 </div>
             </div>
             <!-- END news-feed -->
@@ -37,8 +36,8 @@
             <div class="register-container">
                 <!-- BEGIN register-header -->
                 <div class="register-header mb-25px h1">
-                    <div class="mb-1">Sign Up</div>
-                    <small class="d-block fs-15px lh-16">Create your FitTracker Account. It’s free and always will be.</small>
+                    <div class="mb-1">Regístrate</div>
+                    <small class="d-block fs-15px lh-16">Crea tu cuenta en FitTracker. Es gratis y siempre lo será.</small>
                 </div>
                 <!-- END register-header -->
                 
@@ -47,10 +46,10 @@
                     <form method="POST" action="{{ route('register') }}" class="fs-13px">
                         @csrf
                         <div class="mb-3">
-                            <label class="mb-2">Name <span class="text-danger">*</span></label>
+                            <label class="mb-2">Nombre <span class="text-danger">*</span></label>
                             <div class="row gx-3">
                                 <div class="col-md-6 mb-2 mb-md-0">
-                                    <input type="text" class="form-control fs-13px @error('name') is-invalid @enderror" placeholder="First name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
+                                    <input type="text" class="form-control fs-13px @error('name') is-invalid @enderror" placeholder="Nombre" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -58,7 +57,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control fs-13px @error('surname') is-invalid @enderror" placeholder="Last name" name="surname" value="{{ old('surname') }}" required autocomplete="surname" />
+                                    <input type="text" class="form-control fs-13px @error('surname') is-invalid @enderror" placeholder="Apellido" name="surname" value="{{ old('surname') }}" required autocomplete="surname" />
                                     @error('surname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -68,8 +67,8 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="mb-2">Email <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control fs-13px @error('email') is-invalid @enderror" placeholder="Email address" name="email" value="{{ old('email') }}" required autocomplete="email" />
+                            <label class="mb-2">Correo electrónico <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control fs-13px @error('email') is-invalid @enderror" placeholder="Correo electrónico" name="email" value="{{ old('email') }}" required autocomplete="email" />
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -77,8 +76,8 @@
                             @enderror
                         </div>
                         <div class="mb-4">
-                            <label class="mb-2">Password <span class="text-danger">*</span></label>
-                            <input type="password" class="form-control fs-13px @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password" />
+                            <label class="mb-2">Contraseña <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control fs-13px @error('password') is-invalid @enderror" placeholder="Contraseña" name="password" required autocomplete="new-password" />
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -86,24 +85,24 @@
                             @enderror
                         </div>
                         <div class="mb-4">
-                            <label class="mb-2">Confirm Password <span class="text-danger">*</span></label>
-                            <input type="password" class="form-control fs-13px @error('password_confirmation') is-invalid @enderror" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password" />
+                            <label class="mb-2">Confirmar Contraseña <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control fs-13px @error('password_confirmation') is-invalid @enderror" placeholder="Confirmar Contraseña" name="password_confirmation" required autocomplete="new-password" />
                         </div>
                         <div class="form-check mb-4">
                             <input class="form-check-input" type="checkbox" value="" id="agreementCheckbox" />
                             <label class="form-check-label" for="agreementCheckbox">
-                                By clicking Sign Up, you agree to our <a href="javascript:;">Terms</a> and that you have read our <a href="javascript:;">Data Policy</a>, including our <a href="javascript:;">Cookie Use</a>.
+                                Al hacer clic en Registrarse, aceptas nuestros <a href="javascript:;">Términos</a> y que has leído nuestra <a href="javascript:;">Política de Datos</a>, incluyendo nuestra <a href="javascript:;">Política de Cookies</a>.
                             </label>
                         </div>
                         <div class="mb-4">
-                            <button type="submit" class="btn btn-theme d-block w-100 btn-lg h-45px fs-13px">Sign Up</button>
+                            <button type="submit" class="btn btn-danger d-block w-100 btn-lg h-45px fs-13px">Registrarse</button>
                         </div>
                         <div class="mb-4 pb-5">
-                            Already a member? Click <a href="{{ route('login') }}">here</a> to login.
+                            ¿Ya eres miembro? Haz clic <a href="{{ route('login') }}">aquí</a> para iniciar sesión.
                         </div>
                         <hr class="bg-gray-600 opacity-2" />
                         <p class="text-center text-gray-600">
-                            &copy; FitTracker All Right Reserved 2024
+                            &copy; FitTracker Todos los derechos reservados 2024
                         </p>
                     </form>
                 </div>
