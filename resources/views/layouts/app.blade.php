@@ -27,13 +27,20 @@
             max-height: 40px; /* Ajusta este tamaño según tus necesidades */
             margin-right: 5px;
         }
+        .footer-logo {
+            height: 40px; /* Tamaño del logo en el footer */
+            margin-right: 5px;
+        }
+        .navbar-nav .nav-item {
+            margin-left: 15px; /* Espaciado entre enlaces */
+        }
     </style>
 </head>
 <body>
     <div id="app" class="d-flex flex-column min-vh-100">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ url('dashboard') }}">
-                <img src="{{ asset('images/fittracker.png') }}" alt="FitTracker Logo"> <!-- Asegúrate de que la imagen esté en public/images/logo.png -->
+                <img src="{{ asset('images/fittracker.png') }}" alt="FitTracker Logo"> <!-- Asegúrate de que la imagen esté en public/images/fittracker.png -->
                 FitTracker
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +48,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('clientes.index') }}">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('entrenadores.index') }}">Entrenadores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('clases.index') }}">Clases</a>
+                    </li>
                     @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,7 +89,10 @@
 
         <footer class="bg-dark text-white text-center py-3 mt-auto">
             <div class="container">
-                <p class="mb-0">&copy; {{ date('Y') }} FitTracker. Todos los derechos reservados.</p>
+                <p class="mb-0">
+                    <img src="{{ asset('images/codewave.png') }}" alt="FitTracker Logo" class="footer-logo">
+                    &copy; {{ date('Y') }} FitTracker. Todos los derechos reservados.
+                </p>
             </div>
         </footer>
     </div>
