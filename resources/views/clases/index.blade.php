@@ -10,8 +10,10 @@
     @foreach($clases as $clase)
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
             <div class="card h-100">
+                <div class="card-header bg-danger text-white text-center">
+                    <h5 class="card-title mb-0 font-weight-bold">{{ $clase->nombre }}</h5>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{ $clase->nombre }}</h5>
                     <p class="card-text">{{ $clase->descripcion }}</p>
                     <p class="card-text"><strong>Horario:</strong> {{ $clase->horario }}</p>
                     <p class="card-text"><strong>Entrenadores:</strong> 
