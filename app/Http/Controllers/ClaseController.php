@@ -39,7 +39,7 @@ class ClaseController extends Controller
     public function show($id)
     {
         $clase = Clase::with(['entrenadores', 'clientes'])->findOrFail($id);
-        $clientes = Cliente::all(); // Obtener todos los clientes para el modal
+        $clientes = Cliente::all(); 
         return view('clases.show', compact('clase', 'clientes'));
     }
 
@@ -84,14 +84,14 @@ class ClaseController extends Controller
         $clase = Clase::findOrFail($id);
         $cliente = Cliente::findOrFail($request->cliente_id);
 
-        // Verifica el número de clases permitidas por la membresía del cliente
+        
         $membresia = $cliente->membresia;
         if ($cliente->clases()->count() >= $membresia->max_clases) {
             return redirect()->route('clases.show', $clase->id)
                 ->with('error', 'El cliente ha alcanzado el número máximo de clases permitidas por su membresía.');
         }
 
-        // Asigna el cliente a la clase
+  
         $clase->clientes()->attach($cliente->id);
 
         return redirect()->route('clases.show', $clase->id)->with('success', 'Alumno asignado a la clase correctamente.');

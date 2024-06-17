@@ -9,20 +9,18 @@ use Illuminate\Support\Facades\Storage;
 
 class EntrenadorController extends Controller
 {
-    // Mostrar una lista de entrenadores
+    
     public function index()
     {
         $entrenadores = Entrenador::all();
         return view('entrenadores.index', compact('entrenadores'));
     }
 
-    // Mostrar el formulario para crear un nuevo entrenador
     public function create()
     {
         return view('entrenadores.create');
     }
 
-    // Almacenar un nuevo entrenador
     public function store(Request $request)
     {
         $request->validate([
@@ -48,21 +46,18 @@ class EntrenadorController extends Controller
         return redirect()->route('entrenadores.index')->with('success', 'Entrenador creado exitosamente.');
     }
 
-    // Mostrar un entrenador específico
     public function show($id)
     {
         $entrenador = Entrenador::findOrFail($id);
         return view('entrenadores.show', compact('entrenador'));
     }
 
-    // Mostrar el formulario para editar un entrenador
     public function edit($id)
     {
         $entrenador = Entrenador::find($id);
         return view('entrenadores.edit', compact('entrenador'));
     }
 
-    // Actualizar un entrenador específico
     public function update(Request $request, $id)
 {
     $entrenador = Entrenador::find($id);
@@ -91,7 +86,6 @@ class EntrenadorController extends Controller
     return redirect()->route('entrenadores.index')->with('success', 'Entrenador actualizado exitosamente');
 }
 
-    // Eliminar un entrenador específico
     public function destroy($id)
     {
         $entrenador = Entrenador::findOrFail($id);
