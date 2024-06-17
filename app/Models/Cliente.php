@@ -22,9 +22,4 @@ class Cliente extends Model
     {
         return $this->belongsToMany(Clase::class, 'clase_cliente');
     }
-
-    public function asistencias()
-    {
-        return $this->hasMany(Asistencia::class);
-    }
 }

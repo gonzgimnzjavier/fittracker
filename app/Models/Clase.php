@@ -23,8 +23,4 @@ class Clase extends Model
         return $this->belongsToMany(Cliente::class, 'clase_cliente');
     }
 
-    public function asistencias()
-    {
-        return $this->hasMany(Asistencia::class);
-    }
 }

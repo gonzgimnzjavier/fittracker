@@ -9,7 +9,7 @@ class Entrenador extends Model
 {
     use HasFactory;
 
-    protected $table = 'entrenadores'; // Asegúrate de que el nombre de la tabla es correcto
+    protected $table = 'entrenadores'; 
 
     protected $fillable = [
         'nombre',
