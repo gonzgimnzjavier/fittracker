@@ -19,7 +19,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Tabla pivote para la relación muchos a muchos entre clases y entrenadores
         Schema::create('clase_entrenador', function (Blueprint $table) {
             $table->id();
             $table->foreignId('clase_id')->constrained('clases')->onDelete('cascade');

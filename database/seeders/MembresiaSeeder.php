@@ -25,7 +25,7 @@ class MembresiaSeeder extends Seeder
             ],
             [
                 'nombre' => 'Golden',
-                'max_clases' => 3,
+                'max_clases' => 500,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
