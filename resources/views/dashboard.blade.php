@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 
+
     const membresiaCtx = document.getElementById('membresiaChart').getContext('2d');
     let membresiaChart;
 
