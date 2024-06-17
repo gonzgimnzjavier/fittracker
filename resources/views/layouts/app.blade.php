@@ -4,43 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FitTracker</title>
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- Styles -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <!-- Bootstrap CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        body {
-            overflow-y: scroll;
-        }
-        .main-content {
-            overflow-y: auto;
-            max-height: 100vh;
-        }
-        .navbar-brand img {
-            max-height: 40px; /* Ajusta este tamaño según tus necesidades */
-            margin-right: 5px;
-        }
-        .footer-logo {
-            height: 40px; /* Tamaño del logo en el footer */
-            margin-right: 5px;
-        }
-        .navbar-nav .nav-item {
-            margin-left: 15px; /* Espaciado entre enlaces */
-        }
+       
     </style>
 </head>
 <body>
     <div id="app" class="d-flex flex-column min-vh-100">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ url('dashboard') }}">
-                <img src="{{ asset('images/fittracker.png') }}" alt="FitTracker Logo"> <!-- Asegúrate de que la imagen esté en public/images/fittracker.png -->
+                <img src="{{ asset('images/fittracker.png') }}" alt="FitTracker Logo"> 
                 FitTracker
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

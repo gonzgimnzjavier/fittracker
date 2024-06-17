@@ -6,33 +6,28 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
-    
-    <!-- ================== BEGIN core-css ================== -->
+       
     <link href="{{ asset('assets/css/vendor.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/default/app.min.css') }}" rel="stylesheet" />
-    <!-- ================== END core-css ================== -->
+  
 </head>
 <body class='pace-top'>
-    <!-- BEGIN #loader -->
+ 
     <div id="loader" class="app-loader">
         <span class="spinner"></span>
     </div>
-    <!-- END #loader -->
-
-    <!-- BEGIN #app -->
+  
     <div id="app" class="app">
-        <!-- BEGIN login -->
+   
         <div class="login login-v2 fw-bold">
-            <!-- BEGIN login-cover -->
+
             <div class="login-cover">
                 <div class="login-cover-img" style="background-image: url('{{ asset('assets/img/login-bg/login-bg-17.jpg') }}')" data-id="login-cover-image"></div>
                 <div class="login-cover-bg"></div>
             </div>
-            <!-- END login-cover -->
-            
-            <!-- BEGIN login-container -->
+ 
             <div class="login-container">
-                <!-- BEGIN login-header -->
+             
                 <div class="login-header">
                     <div class="brand">
                         <div class="d-flex align-items-center">
@@ -44,9 +39,7 @@
                         <i class="fa fa-lock"></i>
                     </div>
                 </div>
-                <!-- END login-header -->
-                
-                <!-- BEGIN login-content -->
+               
                 <div class="login-content">
                     <form class="user" method="POST" action="{{ route('login') }}">
                         @csrf
@@ -76,17 +69,15 @@
                         </div>
                     </form>
                 </div>
-                <!-- END login-content -->
+              
             </div>
-            <!-- END login-container -->
-        </div>
-        <!-- END login -->
-    </div>
-    <!-- END #app -->
 
-    <!-- ================== BEGIN core-js ================== -->
+        </div>
+  
+    </div>
+
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
-    <!-- ================== END core-js ================== -->
+  
 </body>
 </html>

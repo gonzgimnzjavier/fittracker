@@ -8,12 +8,12 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Asegura que el body tenga la altura completa de la ventana */
+    height: 100vh; 
 }
 
 .navbar-brand {
     font-weight: bold;
-    color: #e74a3b !important; /* Red accent color */
+    color: #e74a3b !important; 
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -21,12 +21,12 @@ body {
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #e74a3b !important; /* Red accent color */
+    color: #e74a3b !important; 
 }
 
 .main-content {
     flex: 1;
-    margin-bottom: 50px; /* Space for footer */
+    margin-bottom: 50px; 
 }
 
 .card {
@@ -88,5 +88,23 @@ body {
     max-width: 1200px;
 }
 .bg-dark-gray {
-    background-color: #cbcaca; /* Puedes ajustar este valor para hacerlo más oscuro si es necesario */
+    background-color: #cbcaca; 
+}
+body {
+    overflow-y: scroll;
+}
+.main-content {
+    overflow-y: auto;
+    max-height: 100vh;
+}
+.navbar-brand img {
+    max-height: 40px; 
+    margin-right: 5px;
+}
+.footer-logo {
+    height: 40px;
+    margin-right: 5px;
+}
+.navbar-nav .nav-item {
+    margin-left: 15px; 
 }

@@ -7,41 +7,34 @@
     <meta content="" name="description" />
     <meta content="" name="author" />
     
-    <!-- ================== BEGIN core-css ================== -->
     <link href="{{ asset('assets/css/vendor.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/default/app.min.css') }}" rel="stylesheet" />
-    <!-- ================== END core-css ================== -->
+
 </head>
 <body class='pace-top'>
-    <!-- BEGIN #loader -->
+
     <div id="loader" class="app-loader">
         <span class="spinner"></span>
     </div>
-    <!-- END #loader -->
 
-    <!-- BEGIN #app -->
     <div id="app" class="app">
-        <!-- BEGIN register -->
+
         <div class="register register-with-news-feed">
-            <!-- BEGIN news-feed -->
+
             <div class="news-feed">
                 <div class="news-image" style="background-image: url('{{ asset('images/fittracker.png') }}')"></div>
                 <div class="news-caption">
                    
                 </div>
             </div>
-            <!-- END news-feed -->
-            
-            <!-- BEGIN register-container -->
+
             <div class="register-container">
-                <!-- BEGIN register-header -->
+
                 <div class="register-header mb-25px h1">
                     <div class="mb-1">Regístrate</div>
                     <small class="d-block fs-15px lh-16">Crea tu cuenta en FitTracker. Es gratis y siempre lo será.</small>
                 </div>
-                <!-- END register-header -->
-                
-                <!-- BEGIN register-content -->
+              
                 <div class="register-content">
                     <form method="POST" action="{{ route('register') }}" class="fs-13px">
                         @csrf
@@ -101,17 +94,15 @@
                         </p>
                     </form>
                 </div>
-                <!-- END register-content -->
+           
             </div>
-            <!-- END register-container -->
-        </div>
-        <!-- END register -->
-    </div>
-    <!-- END #app -->
 
-    <!-- ================== BEGIN core-js ================== -->
+        </div>
+
+    </div>
+
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
-    <!-- ================== END core-js ================== -->
+  
 </body>
 </html>

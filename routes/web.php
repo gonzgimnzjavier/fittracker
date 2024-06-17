@@ -12,12 +12,9 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-// Rutas de autenticación
 Auth::routes();
 
-// Rutas protegidas por autenticación
 Route::middleware(['auth'])->group(function () {
-    Route::resource('usuarios', UsuarioController::class);
     Route::resource('clientes', ClienteController::class);
     Route::resource('clases', ClaseController::class);
     Route::resource('entrenadores', EntrenadorController::class);
