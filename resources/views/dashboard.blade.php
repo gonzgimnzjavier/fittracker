@@ -41,7 +41,7 @@
 
                     <div class="row mt-3">
                         <div class="col-md-6">
-                            <div class="card bg-dark-gray">
+                            <div class="card bg-dark-gray" style="height: 350px;">
                                 <div class="card-body">
                                     <select id="claseSelect" class="form-control form-control-sm mb-3">
                                         <option value="" disabled selected>Seleccionar Clase</option>
@@ -49,14 +49,14 @@
                                             <option value="{{ $clase->id }}">{{ $clase->nombre }}</option>
                                         @endforeach
                                     </select>
-                                    <canvas id="claseChart" style="max-height: 200px;"></canvas>
+                                    <canvas id="claseChart" style="max-height: 250px;"></canvas>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card bg-dark-gray">
+                            <div class="card bg-dark-gray" style="height: 350px;">
                                 <div class="card-body">
-                                    <canvas id="membresiaChart" style="max-height: 200px;"></canvas>
+                                    <canvas id="membresiaChart" style="max-height: 250px;"></canvas>
                                 </div>
                             </div>
                         </div>
