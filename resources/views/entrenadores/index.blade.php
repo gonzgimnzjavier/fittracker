@@ -26,7 +26,7 @@
                     <form id="deleteForm-{{ $entrenador->id }}" action="{{ route('entrenadores.destroy', $entrenador->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $entrenador->id }})">Eliminar</button>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete('{{ $entrenador->id }}')">Eliminar</button>
                     </form>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                         <form id="deleteForm-{{ $entrenador->id }}" action="{{ route('entrenadores.destroy', $entrenador->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $entrenador->id }})">Eliminar</button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete('{{ $entrenador->id }}')">Eliminar</button>
                         </form>
                     </td>
                 </tr>

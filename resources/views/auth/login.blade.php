@@ -22,7 +22,7 @@
         <div class="login login-v2 fw-bold">
 
             <div class="login-cover">
-                <div class="login-cover-img" style="background-image: url('{{ asset('assets/img/login-bg/login-bg-17.jpg') }}')" data-id="login-cover-image"></div>
+                <div class="login-cover-img" style="background-image: url('{{ asset("assets/img/login-bg/login-bg-17.jpg") }}');" data-id="login-cover-image"></div>
                 <div class="login-cover-bg"></div>
             </div>
  

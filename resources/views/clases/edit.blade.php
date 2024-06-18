@@ -12,19 +12,19 @@
                         @method('PUT')
                         <div class="form-group mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre', $clase->nombre) }}" required>
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre', $clase->nombre) }}" required autocomplete="off">
                         </div>
                         <div class="form-group mb-3">
                             <label for="descripcion" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="descripcion" name="descripcion" required>{{ old('descripcion', $clase->descripcion) }}</textarea>
+                            <textarea class="form-control" id="descripcion" name="descripcion" required autocomplete="off">{{ old('descripcion', $clase->descripcion) }}</textarea>
                         </div>
                         <div class="form-group mb-3">
                             <label for="horario" class="form-label">Horario</label>
-                            <input type="text" class="form-control" id="horario" name="horario" value="{{ old('horario', $clase->horario) }}" required>
+                            <input type="text" class="form-control" id="horario" name="horario" value="{{ old('horario', $clase->horario) }}" required autocomplete="off">
                         </div>
                         <div class="form-group mb-3">
                             <label for="entrenador_id" class="form-label">Entrenador</label>
-                            <select class="form-control" id="entrenador_id" name="entrenador_id" required>
+                            <select class="form-control" id="entrenador_id" name="entrenador_id" required autocomplete="off">
                                 @foreach($entrenadores as $entrenador)
                                     <option value="{{ $entrenador->id }}" {{ $clase->entrenador_id == $entrenador->id ? 'selected' : '' }}>{{ $entrenador->nombre }} {{ $entrenador->apellido }}</option>
                                 @endforeach

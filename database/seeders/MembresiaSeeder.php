@@ -12,19 +12,19 @@ class MembresiaSeeder extends Seeder
     {
         DB::table('membresias')->insert([
             [
-                'nombre' => 'Bronze',
+                'nombre' => 'Económica',
                 'max_clases' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'nombre' => 'Silver',
+                'nombre' => 'Estandar',
                 'max_clases' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'nombre' => 'Golden',
+                'nombre' => 'Premium',
                 'max_clases' => 500,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

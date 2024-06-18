@@ -28,7 +28,7 @@
                     <form id="deleteForm-{{ $clase->id }}" action="{{ route('clases.destroy', $clase->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-danger" onclick="confirmDelete({{ $clase->id }})">Eliminar</button>
+                        <button type="button" class="btn btn-danger" onclick="confirmDelete('{{ $clase->id }}')">Eliminar</button>
                     </form>
                 </div>
             </div>
