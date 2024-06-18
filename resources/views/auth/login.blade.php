@@ -41,10 +41,10 @@
                 </div>
                
                 <div class="login-content">
-                    <form class="user" method="POST" action="{{ route('login') }}">
+                    <form class="user" method="POST" action="{{ route('login') }}" autocomplete="off">
                         @csrf
                         <div class="form-floating mb-20px">
-                            <input type="email" class="form-control fs-13px h-45px border-0 @error('email') is-invalid @enderror" placeholder="Email Address" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+                            <input type="email" class="form-control fs-13px h-45px border-0 @error('email') is-invalid @enderror" placeholder="Email Address" id="email" name="email" value="{{ old('email') }}" required autocomplete="off" autofocus />
                             <label for="email" class="d-flex align-items-center text-gray-600 fs-13px">Dirección de correo</label>
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -53,7 +53,7 @@
                             @enderror
                         </div>
                         <div class="form-floating mb-20px">
-                            <input type="password" class="form-control fs-13px h-45px border-0 @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" required autocomplete="current-password" />
+                            <input type="password" class="form-control fs-13px h-45px border-0 @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" required autocomplete="off" />
                             <label for="password" class="d-flex align-items-center text-gray-600 fs-13px">Contraseña</label>
                             @error('password')
                                 <span class="invalid-feedback" role="alert">

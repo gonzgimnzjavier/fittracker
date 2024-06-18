@@ -36,13 +36,13 @@
                 </div>
               
                 <div class="register-content">
-                    <form method="POST" action="{{ route('register') }}" class="fs-13px">
+                    <form method="POST" action="{{ route('register') }}" class="fs-13px" autocomplete="off">
                         @csrf
                         <div class="mb-3">
                             <label class="mb-2">Nombre <span class="text-danger">*</span></label>
                             <div class="row gx-3">
                                 <div class="col-md-6 mb-2 mb-md-0">
-                                    <input type="text" class="form-control fs-13px @error('name') is-invalid @enderror" placeholder="Nombre" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
+                                    <input type="text" class="form-control fs-13px @error('name') is-invalid @enderror" placeholder="Nombre" name="name" value="{{ old('name') }}" required autocomplete="off" autofocus />
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control fs-13px @error('surname') is-invalid @enderror" placeholder="Apellido" name="surname" value="{{ old('surname') }}" required autocomplete="surname" />
+                                    <input type="text" class="form-control fs-13px @error('surname') is-invalid @enderror" placeholder="Apellido" name="surname" value="{{ old('surname') }}" required autocomplete="off" />
                                     @error('surname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="mb-2">Correo electrónico <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control fs-13px @error('email') is-invalid @enderror" placeholder="Correo electrónico" name="email" value="{{ old('email') }}" required autocomplete="email" />
+                            <input type="email" class="form-control fs-13px @error('email') is-invalid @enderror" placeholder="Correo electrónico" name="email" value="{{ old('email') }}" required autocomplete="off" />
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="mb-4">
                             <label class="mb-2">Contraseña <span class="text-danger">*</span></label>
-                            <input type="password" class="form-control fs-13px @error('password') is-invalid @enderror" placeholder="Contraseña" name="password" required autocomplete="new-password" />
+                            <input type="password" class="form-control fs-13px @error('password') is-invalid @enderror" placeholder="Contraseña" name="password" required autocomplete="off" />
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="mb-4">
                             <label class="mb-2">Confirmar Contraseña <span class="text-danger">*</span></label>
-                            <input type="password" class="form-control fs-13px @error('password_confirmation') is-invalid @enderror" placeholder="Confirmar Contraseña" name="password_confirmation" required autocomplete="new-password" />
+                            <input type="password" class="form-control fs-13px @error('password_confirmation') is-invalid @enderror" placeholder="Confirmar Contraseña" name="password_confirmation" required autocomplete="off" />
                         </div>
                         
                         <div class="mb-4">
