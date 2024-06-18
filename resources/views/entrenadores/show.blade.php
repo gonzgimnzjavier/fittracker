@@ -14,19 +14,19 @@
                 </div>
                 <div class="col-md-8">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-user"></i> <strong>Nombre:</strong> {{ $entrenador->nombre }}</li>
-                        <li class="list-group-item"><i class="fas fa-user-tag"></i> <strong>Apellido:</strong> {{ $entrenador->apellido }}</li>
-                        <li class="list-group-item"><i class="fas fa-envelope"></i> <strong>Email:</strong> {{ $entrenador->email }}</li>
-                        <li class="list-group-item"><i class="fas fa-phone"></i> <strong>Teléfono:</strong> {{ $entrenador->telefono }}</li>
-                        <li class="list-group-item"><i class="fas fa-home"></i> <strong>Dirección:</strong> {{ $entrenador->direccion }}</li>
-                        <li class="list-group-item"><i class="fas fa-birthday-cake"></i> <strong>Fecha de Nacimiento:</strong> {{ \Carbon\Carbon::parse($entrenador->fecha_nacimiento)->format('d/m/Y') }}</li>
-                        <li class="list-group-item"><i class="fas fa-id-card"></i> <strong>DNI:</strong> {{ $entrenador->dni }}</li>
+                        <li class="list-group-item"> <strong>Nombre:</strong> {{ $entrenador->nombre }}</li>
+                        <li class="list-group-item"> <strong>Apellido:</strong> {{ $entrenador->apellido }}</li>
+                        <li class="list-group-item"> <strong>Email:</strong> {{ $entrenador->email }}</li>
+                        <li class="list-group-item"> <strong>Teléfono:</strong> {{ $entrenador->telefono }}</li>
+                        <li class="list-group-item"> <strong>Dirección:</strong> {{ $entrenador->direccion }}</li>
+                        <li class="list-group-item"> <strong>Fecha de Nacimiento:</strong> {{ \Carbon\Carbon::parse($entrenador->fecha_nacimiento)->format('d/m/Y') }}</li>
+                        <li class="list-group-item"> <strong>DNI:</strong> {{ $entrenador->dni }}</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="card-footer text-end">
-            <a href="{{ route('entrenadores.index') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Volver</a>
+            <a href="{{ route('entrenadores.index') }}" class="btn btn-primary">Volver</a>
         </div>
     </div>
 </div>
