@@ -19,11 +19,11 @@
     </a>
 </p>
 
-# FITTRACKER Gym Management System 🏋️‍♂️🏋️‍♀️
+# 🏋️‍♂️🏋️‍♀️ FITTRACKER 🏋️‍♂️🏋️‍♀️
 
-Este proyecto es un sistema de gestión de gimnasios (ERP) desarrollado con Laravel y Bootstrap. Permite realizar operaciones CRUD para gestionar clientes, clases y entrenadores, con autenticación implementada usando Laravel Breeze.
+Este proyecto es un sistema de gestión de gimnasios (ERP) desarrollado con Laravel y Bootstrap como parte de mi módulo proyecto de DAM. Permite realizar operaciones CRUD para gestionar clientes, clases y entrenadores, con autenticación implementada usando Laravel Breeze.
 
-## Características ✨
+## ✨ Características
 
 - 👥 Gestión de clientes
 - 🏋️‍♂️ Gestión de clases
@@ -31,17 +31,27 @@ Este proyecto es un sistema de gestión de gimnasios (ERP) desarrollado con Lara
 - 🔐 Autenticación y autorización
 - 📱 Interfaz de usuario responsiva con Bootstrap
 
-## Tecnologías 🛠️
+## 🛠️ Tecnologías
 
 - **Laravel**: Framework de PHP para backend.
 - **Laravel Breeze**: Para la implementación de autenticación.
 - **Bootstrap**: Framework CSS para frontend.
 
-## Capturas de Pantalla 📸
+## 📸 Capturas de Pantalla
 
-> Incluir capturas de pantalla de las diferentes partes de la aplicación (login, dashboard, gestión de clientes, etc.)
+<p align="center">
+    <img src="f1.png" width="300" alt="Login">
+    <img src="f2.png" width="300" alt="Dashboard">
+    <img src="f3.png" width="300" alt="Gestión de Clientes">
+</p>
+<p align="center">
+    <img src="f4.png" width="300" alt="Gestión de Clases">
+    <img src="f5.png" width="300" alt="Gestión de Entrenadores">
+    <img src="f6.png" width="300" alt="Detalle de Cliente">
+    <img src="f7.png" width="300" alt="Detalle de Clase">
+</p>
 
-## Instalación ⚙️
+## ⚙️ Instalación
 
 Sigue estos pasos para instalar y configurar el proyecto en tu entorno local.
 
@@ -84,20 +94,20 @@ Sigue estos pasos para instalar y configurar el proyecto en tu entorno local.
     php artisan serve
     ```
 
-## Contribuir 🤝
+## 🤝 Contribuir
 
 ¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 
 1. Realiza un fork del proyecto.
 2. Crea una rama para tu característica (`git checkout -b feature/nueva-caracteristica`).
 3. Realiza los cambios necesarios y haz commit (`git commit -am 'Agrega nueva característica'`).
-4. Sube los cambios a tu repositorio (`git push origin feature/nueva-caracteristica`).
+4. Sube los cambios a tu repositorio (`git push origin feature/nueva-característica`).
 5. Abre una solicitud de pull en GitHub.
 
-## Seguridad 🔒
+## 🔒 Seguridad
 
-Si encuentras algún problema de seguridad, por favor repórtalo enviando un correo a [tu_correo@example.com](mailto:javigongimenez@gmail.com).
+Si encuentras algún problema de seguridad, por favor repórtalo enviando un correo a [javigongimenez@gmail.com](mailto:javigongimenez@gmail.com)
 
-## Licencia 📄
+## 📄 Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT.
